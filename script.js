@@ -4,21 +4,32 @@
 // Tip: use the console to make sure this is returning the expected output before 
 // moving to the next step!
 
-/* function getComputerChoice(choice) {
-    const random = [Math.floor(Math.random() * choice.length)]; //get a random index from a set of values
-    return choice[random]; //return the value at the random index
+
+
+function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors']
+    const random = Math.floor(Math.random() * choices.length);
+    const computerChoice = choices[random];
+    return computerChoice;
 }
 
-const options = ['Rock', 'Paper', 'Scissor']; 
-const randomValue = getComputerChoice(options); 
-
-console.log(randomValue); */
-
-
 function playRound(playerSelection, computerSelection) {
-    // your code here!
+    playerChoice = playerSelection.toLowerCase();
+    
+    if (playerChoice === computerSelection) {
+        return "It's a draw!"; 
+    } else if (
+        (playerChoice === 'paper' && computerSelection === 'rock') || 
+        (playerChoice === 'rock' && computerSelection === 'scissors') ||
+        (playerChoice === 'scissors' && computerSelection === 'paper')
+    ) {
+        return "You Win! " + playerSelection + " beats " + computerSelection;
+    } else {
+        return "You Lose! " + computerSelection + " beats " + playerSelection;
+    }
+
   }
   
-  const playerSelection = "rock";
+  const playerSelection = "paper";
   const computerSelection = getComputerChoice();
   console.log(playRound(playerSelection, computerSelection));
